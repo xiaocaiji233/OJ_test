@@ -1,0 +1,122 @@
+<template>
+<div class="auth-page">
+<div id="login_frame">
+<form method="post" action="login.js">
+	<p><label class="label_input">用户等级</label><input v-model="forms.level" type="text" id="userdj" class="text_field" list="dj_list"/></p>
+	<datalist id="dj_list">
+		<option value="教师"/>
+		<option value="学生"/>
+	</datalist>
+	<p><label class="label_input">用户名</label><input v-model="forms.username" type="text" id="username" class="text_field"/></p>
+	<p><label class="label_input">密码</label><input v-model="forms.password" type="text" id="password" class="text_field"/></p>
+	
+	<div id="login_control">
+		<router-link  to="Userinfo"><input type="button" id="btn_login" value="登录" @click="login"/></router-link>
+		<router-link id="forget_pwd" to="forget_pwd">忘记密码？</router-link>
+	</div>
+</form>
+</div>
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+     return {
+        forms: {
+            level: '',
+            username: '',
+            password: ''
+        }
+        }
+    },
+    methods: {
+        login() {
+            console.log(this.forms.level)
+        }
+    }
+}
+</script>
+
+<style>
+#login_frame{
+	width: 400px;
+    height: 260px;
+    padding: 13px;
+ 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+ 
+    background-color: rgba(240, 255, 255, 0.5);
+ 
+    border-radius: 10px;
+    text-align: center;
+}
+
+form p > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.label_input {
+    font-size: 14px;
+    font-family: 宋体;
+ 
+    width: 65px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+ 
+    color: white;
+    background-color: #3CD8FF;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+ 
+.text_field {
+    width: 278px;
+    height: 28px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+}
+ 
+#btn_login {
+    font-size: 14px;
+    font-family: 宋体;
+ 
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+ 
+    color: white;
+    background-color: #3BD9FF;
+    border-radius: 6px;
+    border: 0;
+ 
+    float: left;
+}
+ 
+#forget_pwd {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    float: right;
+    top: 5px;
+ 
+}
+ 
+#forget_pwd:hover {
+    color: blue;
+    text-decoration: underline;
+}
+ 
+#login_control {
+    padding: 0 28px;
+}
+</style>
